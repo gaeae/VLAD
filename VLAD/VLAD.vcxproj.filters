@@ -13,5 +13,40 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Training">
+      <UniqueIdentifier>{bd73094d-5c31-4961-abae-0e88a1ab5847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Test">
+      <UniqueIdentifier>{f1e3069e-f31e-4a89-a160-d278c368225b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Training">
+      <UniqueIdentifier>{027c29c9-8867-45ad-a9ff-04fc1262e34a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test">
+      <UniqueIdentifier>{912cb7e7-2389-4abf-8a9f-68dc52821ec3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Training\BOWKTrainer.cpp">
+      <Filter>Source Files\Training</Filter>
+    </ClCompile>
+    <ClCompile Include="Training\sorter.cpp">
+      <Filter>Source Files\Training</Filter>
+    </ClCompile>
+    <ClCompile Include="Training\surf.cpp">
+      <Filter>Source Files\Training</Filter>
+    </ClCompile>
+    <ClCompile Include="Training\svm_train.cpp">
+      <Filter>Source Files\Training</Filter>
+    </ClCompile>
+    <ClCompile Include="Training\VLAD.cpp">
+      <Filter>Source Files\Training</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\svmTest_VLAD.cpp">
+      <Filter>Source Files\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
