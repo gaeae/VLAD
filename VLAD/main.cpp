@@ -1,13 +1,13 @@
 #include "Training\BOWKTrainer.h"
 #include "Training\sorter.h"
 #include "Training\surf.h"
-#include "Training\svm.h"
+#include "Training\svm_train.h"
 #include "Training\VLAD.h"
 
 #include "Test\svmTest_VLAD.h"
 
+//STL
 #include <iostream>
-#include <new>
 #include <memory>
 
 int main() {

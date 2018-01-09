@@ -62,11 +62,11 @@
     <ClInclude Include="Training\VLAD.h">
       <Filter>Header Files\Training</Filter>
     </ClInclude>
-    <ClInclude Include="Training\svm.h">
-      <Filter>Header Files\Training</Filter>
-    </ClInclude>
     <ClInclude Include="Test\svmTest_VLAD.h">
       <Filter>Header Files\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Training\svm_train.h">
+      <Filter>Header Files\Training</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

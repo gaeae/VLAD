@@ -1,28 +1,21 @@
 //BOWKmeans training- Creates BOW Descriptors
-
 #include "BOWKTrainer.h"
-//#include <highgui.h>
-#include <opencv\highgui.h>
-#include "opencv2/opencv.hpp"
-#include <string>
-//#include "trainer.hpp"
-#include <iostream>
-#include <fstream>
-//#include "HarrisDetector.cpp"
 
 #include <direct.h>
+#include <fstream>
+#include <iostream>
+#include <string>
+//#include "trainer.hpp"
+//#include "HarrisDetector.cpp"
 
-
-using namespace cv;
-using namespace std;
 
 void BOWKTrainer::createBOWDescriptors() {
   //map<string,Mat> class_data;
 
-  string fname;
-  Mat trainDesc;
+  std::string fname;
+  cv::Mat trainDesc;
   _chdir("SURFPCA");
-  ifstream f1;
+  std::ifstream f1;
   f1.open("list.txt");
 
   //char opt = 'y';
@@ -30,26 +23,26 @@ void BOWKTrainer::createBOWDescriptors() {
     //cout<<"\n Enter filename";
     //cin>>fname;
     f1 >> fname;
-    cout << "Adding descriptors from " << fname;
-    FileStorage fs2(fname, FileStorage::READ);
-    Mat add1;
+    std::cout << "Adding descriptors from " << fname;
+    cv::FileStorage fs2(fname, cv::FileStorage::READ);
+    cv::Mat add1;
     fs2["desc_all"] >> add1;
-    cout << "\n" << add1.rows;
+    std::cout << "\n" << add1.rows;
     trainDesc.push_back(add1);
 
     //cout<<"\n Add another file?(y/n)";
     //cin>>opt;
   }
-  cout << "\n Train desc" << trainDesc.rows;
-  Mat trainDesc_32f;
+  std::cout << "\n Train desc" << trainDesc.rows;
+  cv::Mat trainDesc_32f;
   trainDesc.convertTo(trainDesc_32f, CV_32F);
-  BOWKMeansTrainer bowtrainer(200);
+  cv::BOWKMeansTrainer bowtrainer(200); //INFO: gleiche wie in FABMAP
   bowtrainer.add(trainDesc_32f);
-  cout << "\n clustering Bow features" << endl;
+  std::cout << "\n clustering Bow features" << std::endl;
 
-  Mat vocabulary = bowtrainer.cluster();
+  cv::Mat vocabulary = bowtrainer.cluster();
   _chdir("..");
-  FileStorage fs1("vocabulary_surfpca_vlad_200.xml", FileStorage::WRITE);
+  cv::FileStorage fs1("vocabulary_surfpca_vlad_200.xml", cv::FileStorage::WRITE);
 
   fs1 << "vocabulary" << vocabulary;
 

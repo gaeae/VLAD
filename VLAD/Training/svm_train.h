@@ -7,12 +7,12 @@
 #include "opencv2/nonfree/nonfree.hpp"
 #include "opencv2/legacy/legacy.hpp"
 
-class VLAD {
+class SVMTraining {
 public:
-  VLAD() {};
-  ~VLAD() {};
+  SVMTraining() {};
+  ~SVMTraining() {};
 
-  void bowKMeansRecogniser();
+  void train();
 
 private:
 

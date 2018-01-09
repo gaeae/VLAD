@@ -1,21 +1,20 @@
 //Sorts images as per labels
 #include "sorter.h"
 
-#include <iostream>
 #include <fstream>
-#include <boost/algorithm/string.hpp>
+#include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
+
 
 void Sorter::sort()
 {
-    ifstream f1("labels.txt");
+    std::ifstream f1("labels.txt");
     
     //chdir("Images");
    // system("ls");
-    string str;
-    string label;
+    std::string str;
+    std::string label;
   //  system("pwd");
     while( !f1.eof() )
     {   
@@ -24,8 +23,8 @@ void Sorter::sort()
         f1 >> label;
         
         
-        string command = string("mv Images/")  + str + string(" ./") + label + string("/") + str;
-        cout<<"\n" << command;
+        std::string command = std::string("mv Images/")  + str + std::string(" ./") + label + std::string("/") + str;
+        std::cout<<"\n" << command;
         system(command.c_str());
         
     }
