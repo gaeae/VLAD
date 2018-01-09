@@ -1,4 +1,5 @@
 //SVM test
+#include "svmTest_VLAD.h"
 
 #include <iostream>
 #include <opencv\cv.h>
@@ -20,7 +21,7 @@
 using namespace cv;
 using namespace std;
 
-int test()
+void  SVMTest::test()
 {
 
 //Test
@@ -114,5 +115,5 @@ int test()
 	}	
 	
 	f2.close();
-	return 0;
+	//return 0;
 }	

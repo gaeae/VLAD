@@ -49,4 +49,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Training\BOWKTrainer.h">
+      <Filter>Header Files\Training</Filter>
+    </ClInclude>
+    <ClInclude Include="Training\sorter.h">
+      <Filter>Header Files\Training</Filter>
+    </ClInclude>
+    <ClInclude Include="Training\surf.h">
+      <Filter>Header Files\Training</Filter>
+    </ClInclude>
+    <ClInclude Include="Training\VLAD.h">
+      <Filter>Header Files\Training</Filter>
+    </ClInclude>
+    <ClInclude Include="Training\svm.h">
+      <Filter>Header Files\Training</Filter>
+    </ClInclude>
+    <ClInclude Include="Test\svmTest_VLAD.h">
+      <Filter>Header Files\Test</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

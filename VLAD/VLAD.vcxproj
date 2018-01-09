@@ -139,6 +139,14 @@
     <ClCompile Include="Training\svm_train.cpp" />
     <ClCompile Include="Training\VLAD.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Test\svmTest_VLAD.h" />
+    <ClInclude Include="Training\BOWKTrainer.h" />
+    <ClInclude Include="Training\sorter.h" />
+    <ClInclude Include="Training\surf.h" />
+    <ClInclude Include="Training\svm.h" />
+    <ClInclude Include="Training\VLAD.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,4 +1,5 @@
 //Sorts images as per labels
+#include "sorter.h"
 
 #include <iostream>
 #include <fstream>
@@ -7,7 +8,7 @@
 #include <vector>
 using namespace std;
 
-int sorter()
+void Sorter::sort()
 {
     ifstream f1("labels.txt");
     
@@ -29,5 +30,5 @@ int sorter()
         
     }
     
-    return 0;
+    //return 0;
 }

@@ -4,6 +4,7 @@
  * 			  Leaf1_shape.xml - > Shape responses
  * Then create a text file with the names of all Leaf response(SIFT) files
  *******************************************************************************************/ 			
+#include "svm.h"
 
 #include <iostream>
 #include <opencv/cv.h>
@@ -21,7 +22,7 @@ using namespace cv;
 using namespace cvflann;
 using namespace std;
 
-int svm_train()
+void SVMTraining::train()
 {
 	
 	/* code for reading file with ORB features*/
@@ -117,7 +118,7 @@ int svm_train()
 	//End of training
 
 	
-	return 0;
+	//return 0;
 	
 }
 	

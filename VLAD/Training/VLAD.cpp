@@ -1,4 +1,5 @@
 //BOWKMeans Recogniser
+#include "VLAD.h"
 
 #include <iostream>
 #include <opencv/cv.h>
@@ -17,7 +18,7 @@ using namespace cv;
 using namespace std;
 
 
-int vlad()
+void VLAD::bowKMeansRecogniser()
 {
 	Mat vocabulary;
 	
@@ -140,7 +141,7 @@ int vlad()
 		_chdir("..");
 		
 	}
-    return 0;
+    //return 0;
 }
 		
 		

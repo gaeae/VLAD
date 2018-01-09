@@ -1,4 +1,7 @@
 //
+
+#include "surf.h"
+
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <opencv2/features2d/features2d.hpp>
@@ -13,7 +16,7 @@
 using namespace std;
 using namespace cv;
 
-int surf()
+void  Surf::surf()
 {
 	Mat img;
 	Mat threshImg;
@@ -89,5 +92,5 @@ int surf()
 	}
 	dir_list.close();
 	
-	return 1;
+	//return 1;
 }
