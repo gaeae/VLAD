@@ -46,11 +46,12 @@ void  Surf::surf() {
       cvtColor(img, img, CV_BGR2GRAY);
       cv::SURF surf;
 
+      /*
       std::vector<cv::Point2f> points;
       //harrisFeatures(img, points);
-      std::cout << "\n POints size:" << points.size();
-      int i;
-      /*
+      //std::cout << "\n POints size:" << points.size();
+      //int i;
+      
       for(i=0;i<points.size();i++)
       {
           KeyPoint temp(points[i],10,-1,0,0,-1);
@@ -58,10 +59,9 @@ void  Surf::surf() {
           cout<<"\n Point "<<i<<" "<< keypoints[i].pt.x <<" "<<keypoints[i].pt.y;
       }
       */
-      surf(img, img, keypoints, desc, false);
+
+      surf(img, img, keypoints, desc, false); ///finds keypoint and compute descriptors
       desc_all.push_back(desc);
-
-
 
     }
     std::string featureVectorFile = std::string(dirName) + std::string("SURF.xml");

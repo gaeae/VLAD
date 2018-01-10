@@ -92,7 +92,7 @@ void SVMTraining::train() {
   std::cout << "\n Training!";
 
   //SVM training:
-
+  
   CvSVM svm(svmData, labelData, cv::Mat(), cv::Mat(), params);
   //params=svm.get_params();
   //cout<<"\n Svm parameters: "<<svm.get_params();
@@ -108,7 +108,5 @@ void SVMTraining::train() {
 
   //End of training
 
-
   //return 0;
-
 }

@@ -48,6 +48,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PipelineVLAD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManagement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Training\BOWKTrainer.h">
@@ -67,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="Training\svm_train.h">
       <Filter>Header Files\Training</Filter>
+    </ClInclude>
+    <ClInclude Include="PipelineVLAD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManagement.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

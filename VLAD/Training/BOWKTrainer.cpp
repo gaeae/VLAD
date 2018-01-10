@@ -36,7 +36,7 @@ void BOWKTrainer::createBOWDescriptors() {
   std::cout << "\n Train desc" << trainDesc.rows;
   cv::Mat trainDesc_32f;
   trainDesc.convertTo(trainDesc_32f, CV_32F);
-  cv::BOWKMeansTrainer bowtrainer(200); //INFO: gleiche wie in FABMAP
+  cv::BOWKMeansTrainer bowtrainer(200); //INFO: FABMAP: cv::of2::BOWMSCTrainer
   bowtrainer.add(trainDesc_32f);
   std::cout << "\n clustering Bow features" << std::endl;
 

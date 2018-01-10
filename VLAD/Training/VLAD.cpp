@@ -11,25 +11,26 @@
 
 
 void VLAD::bowKMeansRecogniser() {
+  // TODO: read function
+  //-- Reading vocabulary
   cv::Mat vocabulary;
-
   std::cout << "Reading Vocabulary from file";
   cv::FileStorage fs1("vocabulary_surf_vlad.xml", cv::FileStorage::READ);
-
   fs1["vocabulary"] >> vocabulary;
   fs1.release();
+
+  // TODO: passing detector and extractor, also matcher
   cv::Mat img;
   cv::Ptr<cv::FeatureDetector> detector = cv::FeatureDetector::create("SURF");
-
   cv::Ptr<cv::DescriptorExtractor> extractor = cv::DescriptorExtractor::create("SURF");
   cv::Ptr<cv::DescriptorMatcher> matcher = cv::DescriptorMatcher::create("BruteForce");
-  cv::BOWImgDescriptorExtractor bowide(extractor, matcher);
-  bowide.setVocabulary(vocabulary);
+  // image desc extractor
+  cv::BOWImgDescriptorExtractor bide(extractor, matcher);
+  bide.setVocabulary(vocabulary);
+
   std::vector<cv::KeyPoint> keypoints;
   cv::Mat desc, desc1;
-  //vector<Mat> desc;
-  //Setting up training data
-  char opt = 'y';
+  //-- Setting up training data
   int i = 0;
   char compName[50], response[50];
   std::ifstream specNameList;
@@ -38,8 +39,7 @@ void VLAD::bowKMeansRecogniser() {
     //cout<<"\n Enter Species for training";
     //cin>>compName;
     specNameList >> compName;
-    strcpy(response, compName);
-
+    strcpy(response, compName); ///copy source to destination
     strcat(response, "SURFVLADResponse.xml");
     std::cout << "\n Adding to " << response;
     _chdir(compName);
@@ -50,9 +50,7 @@ void VLAD::bowKMeansRecogniser() {
     f1.open("list.txt");
 
     cv::FileStorage fs2(response, cv::FileStorage::WRITE);
-    //int flag =0;
     cv::Mat desc;
-    //Mat responseCopy;
     while (!f1.eof()) {
       //Mat responseHist(1,30,CV_32FC1);
       f1 >> imgName;
@@ -61,12 +59,11 @@ void VLAD::bowKMeansRecogniser() {
       if (!img.data)
         continue;
       cvtColor(img, img, CV_BGR2GRAY);
-      cv::SURF surf;
-      std::vector<cv::Point2f> points;
-      //harrisFeatures(img, points);
-      //cout<<"\n POints size:"<<points.size();
-      /*
 
+      /*
+      std::vector<cv::Point2f> points;
+      harrisFeatures(img, points);
+      //cout<<"\n POints size:"<<points.size();
       for(i=0;i<points.size();i++)
       {
           KeyPoint temp(points[i],10,-1,0,0,-1);
@@ -74,7 +71,11 @@ void VLAD::bowKMeansRecogniser() {
           //cout<<"\n Point "<<i<<" "<< keypoints[i].pt.x <<" "<<keypoints[i].pt.y;
       }
       */
+
+      // TODO: maybe detect and compute?
+      cv::SURF surf;
       surf(img, img, keypoints, desc1, false);
+
       cv::Mat desc1_32f;
       desc1.convertTo(desc1_32f, CV_32F);
       /* **********The new VLAD.compute  **********/
@@ -93,9 +94,6 @@ void VLAD::bowKMeansRecogniser() {
 
         subtract(desc1_32f.row(matches[i].queryIdx), vocabulary.row(matches[i].trainIdx), residual, cv::noArray(), CV_32F);
         add(responseHist.row(matches[i].trainIdx), residual, responseHist.row(matches[i].trainIdx), cv::noArray(), responseHist.type());
-
-
-
       }
       responseHist /= norm(responseHist, cv::NORM_L2, cv::noArray());
 
@@ -117,7 +115,6 @@ void VLAD::bowKMeansRecogniser() {
     }
 
     fs2 << "responseHist" << desc;
-
     fs2.release();
 
     f1.close();

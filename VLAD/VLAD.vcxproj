@@ -131,7 +131,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataManagement.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PipelineVLAD.cpp" />
     <ClCompile Include="Test\svmTest_VLAD.cpp" />
     <ClCompile Include="Training\BOWKTrainer.cpp" />
     <ClCompile Include="Training\sorter.cpp" />
@@ -140,6 +142,8 @@
     <ClCompile Include="Training\VLAD.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataManagement.h" />
+    <ClInclude Include="PipelineVLAD.h" />
     <ClInclude Include="Test\svmTest_VLAD.h" />
     <ClInclude Include="Training\BOWKTrainer.h" />
     <ClInclude Include="Training\sorter.h" />
