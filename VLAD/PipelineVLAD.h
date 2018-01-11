@@ -31,11 +31,18 @@ private:
 
   void computesDescriptors(cv::Ptr<cv::FeatureDetector> &detector);
 
-  DataManagement m_dataManagement;
+  
   VLAD m_Vlad;
 
   std::string m_typeMat;
+  std::string m_typeImages;
+
+  std::string m_nameVocabulary;
+  std::string m_nameFeatureDescriptors;
+  std::string m_nameResponseHist;
 
   std::string m_pathImages;
-  std::string m_typeImages;
+  std::string m_pathVocabulary;
+  std::string m_pathFeatureDescriptors;
+  std::string m_pathResult;
 };

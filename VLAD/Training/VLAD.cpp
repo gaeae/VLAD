@@ -10,18 +10,22 @@
 //#include "HarrisDetector.cpp"
 
 
+VLAD::VLAD() {
+
+}
+
 void VLAD::bowKMeansRecogniser() {
-  // TODO: read function
+  // TODO: pass path and name
   //-- Reading vocabulary
   cv::Mat vocabulary;
   std::cout << "Reading Vocabulary from file";
-  cv::FileStorage fs1("vocabulary_surf_vlad.xml", cv::FileStorage::READ);
-  fs1["vocabulary"] >> vocabulary;
-  fs1.release();
+  vocabulary = m_dataManagement.loadMat("", "Vocabulary", "yml");
 
-  // TODO: passing detector and extractor, also matcher
+
+  // TODO: pass detector and extractor, also matcher
   cv::Mat img;
-  cv::Ptr<cv::FeatureDetector> detector = cv::FeatureDetector::create("SURF");
+  // detector not needed
+  //cv::Ptr<cv::FeatureDetector> detector = cv::FeatureDetector::create("SURF");
   cv::Ptr<cv::DescriptorExtractor> extractor = cv::DescriptorExtractor::create("SURF");
   cv::Ptr<cv::DescriptorMatcher> matcher = cv::DescriptorMatcher::create("BruteForce");
   // image desc extractor
@@ -36,6 +40,8 @@ void VLAD::bowKMeansRecogniser() {
   std::ifstream specNameList;
   specNameList.open("dir.txt");
   while (!specNameList.eof()) {
+
+    /**************************************************/
     //cout<<"\n Enter Species for training";
     //cin>>compName;
     specNameList >> compName;
@@ -50,6 +56,9 @@ void VLAD::bowKMeansRecogniser() {
     f1.open("list.txt");
 
     cv::FileStorage fs2(response, cv::FileStorage::WRITE);
+
+    /***************************************************/
+
     cv::Mat desc;
     while (!f1.eof()) {
       //Mat responseHist(1,30,CV_32FC1);
