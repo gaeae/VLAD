@@ -24,13 +24,13 @@ std::vector<std::string> DataManagement::loadImageNames(std::string pathImages, 
 }
 
 cv::VideoCapture DataManagement::loadMovie(std::string pathMovie, std::string name, std::string dataType) {
-  pathMovie = pathMovie + name + ".avi";
-  std::cout << "Loading movie " + name + " from:\n   " << pathMovie << std::endl;
+  pathMovie = pathMovie + name + "." + dataType;
+  std::cout << "Loading movie " + name + "." + dataType + " from:\n   " << pathMovie << std::endl;
 
   cv::VideoCapture movie;
   movie.open(pathMovie);
   if (!movie.isOpened()) {
-    std::cerr << "ERROR: " << pathMovie << ": training movie not found" << std::endl;
+    std::cerr << "ERROR: In " << pathMovie << ": training movie not found" << std::endl;
   }
   return movie;
 }

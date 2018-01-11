@@ -33,6 +33,7 @@ private:
 
   
   VLAD m_Vlad;
+  DataManagement m_dataManagement;
 
   std::string m_typeMat;
   std::string m_typeImages;
