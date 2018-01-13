@@ -139,7 +139,7 @@ void PipelineVLAD::runTrainig() {
   m_dataManagement.saveMat(m_pathFeatureDescriptors, m_nameResponseHist, m_typeMat, desc2);
 
   /***************************************************************
-  *       SVM Train  --> Dont have labels, so no training
+  *       SVM Train  --> INFO: Dont have labels, so no training
   ***************************************************************/
   //-- Loading responseHist
   cv::Mat trainData, labels;
